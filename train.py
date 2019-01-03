@@ -20,7 +20,7 @@ for i in range(10, 40, 5):
     os.system("python divide.py -orf /home/fuyilei96/ProteinAlignment/proteinalignment/benchmark/ox/in/ -ouf /home/fuyilei96/ProteinAlignment/proteinalignment/divided/ox/ -fp " + str(j) + " -sp " + str(1 - j))
     os.system("python divide.py -orf /home/fuyilei96/ProteinAlignment/proteinalignment/benchmark/bali3/in/ -ouf /home/fuyilei96/ProteinAlignment/proteinalignment/divided/bali3/ -fp " + str(j) + " -sp " + str(1 - j))
     #Calculating Scores
-    scorepath = "/home/fuyilei96/ProteinAlignment/score_" + str(j)
+    scorepath = "/home/fuyilei96/ProteinAlignment/score_" + str(j) + "/"
     os.system("mkdir  " + scorepath)
     os.system("python score.py -af /home/fuyilei96/ProteinAlignment/proteinalignment/divided/sabre/output/ -rf /home/fuyilei96/ProteinAlignment/proteinalignment/benchmark/sabre/ref/ -op " + scorepath + " -dbn sabre")
     os.system("python score.py -af /home/fuyilei96/ProteinAlignment/proteinalignment/divided/ox/output/ -rf /home/fuyilei96/ProteinAlignment/proteinalignment/benchmark/ox/ref/ -op " + scorepath + " -dbn ox")
