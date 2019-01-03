@@ -13,7 +13,7 @@
 import sys
 import os
 
-for i in range(10, 40, 2):
+for i in range(16, 42, 2):
     j = float(i)/100
     os.system("mkdir  /home/fuyilei96/ProteinAlignment/proteinalignment/divided/sabre /home/fuyilei96/ProteinAlignment/proteinalignment/divided/ox /home/fuyilei96/ProteinAlignment/proteinalignment/divided/bali3")
     os.system("python divide.py -orf /home/fuyilei96/ProteinAlignment/proteinalignment/benchmark/sabre/in/ -ouf /home/fuyilei96/ProteinAlignment/proteinalignment/divided/sabre/ -fp " + str(j) + " -sp " + str(1 - j))
