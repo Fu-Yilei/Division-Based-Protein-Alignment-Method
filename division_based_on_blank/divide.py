@@ -120,7 +120,7 @@ os.system("mkdir "  + _out_file_path + "in_pt0 " + _out_file_path + "in_pt1 " + 
 os.system("mkdir " + output_path)
 
 
-First alignment using msaprobs, outputing to temp folder
+#First alignment using msaprobs, outputing to temp folder
 files = os.listdir(originalfilepath)
 for _filename in files:
     os.system("cd " + originalfilepath + " && " + "msaprobs -o " + temp_path + _filename + "_aligned" + " " + _filename)
