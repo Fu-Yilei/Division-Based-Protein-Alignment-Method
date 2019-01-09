@@ -64,12 +64,12 @@ def findlongest(one_protein):
     count = 0
     i = 0
     # print(len(one_protein))
-    while(i < len(one_protein) - 1 ):
+    while(i < len(one_protein) - 1):
         if one_protein[i] == '-':
             poslist.append(i)
             count = 1
             i = i + 1
-            while(one_protein[i] == "-"):
+            while(one_protein[i] == "-" and i < len(one_protein)):
                 count = count+1
                 i = i + 1
             lengthlist.append(count)
