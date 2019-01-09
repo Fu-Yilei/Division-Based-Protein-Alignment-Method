@@ -54,6 +54,7 @@ def divide_based_on_space(poslen_detail, proteinlist):
         protein_part0.append(i[0:first_pos])
         protein_part1.append(i[first_pos:second_pos])
         protein_part2.append(i[second_pos:])
+    print(first_pos, second_pos, first_len, second_pos)
     return (protein_part0, protein_part1, protein_part2)
 
 
