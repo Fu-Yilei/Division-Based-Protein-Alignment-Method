@@ -43,6 +43,7 @@ def divide_based_on_space(poslen_detail, proteinlist):
             if i[1][j] > second_len and i[1][j] < first_len:
                 second_len = i[1][j]
                 second_pos = i[0][j]
+
     if first_pos > second_pos:
         temp_pos = first_pos
         first_pos = second_pos
@@ -50,11 +51,13 @@ def divide_based_on_space(poslen_detail, proteinlist):
         temp_len = first_len
         first_len = second_len
         second_len = temp_len
+
     for i in proteinlist:
         protein_part0.append(i[0:first_pos])
         protein_part1.append(i[first_pos:second_pos])
         protein_part2.append(i[second_pos:])
-    print(first_pos, second_pos, first_len, second_pos)
+
+    print(first_pos, second_pos, first_len, second_len)
     return (protein_part0, protein_part1, protein_part2)
 
 
@@ -117,16 +120,16 @@ os.system("mkdir "  + _out_file_path + "in_pt0 " + _out_file_path + "in_pt1 " + 
 os.system("mkdir " + output_path)
 
 
-#First alignment using msaprobs, outputing to temp folder
-# files = os.listdir(originalfilepath)
-# for _filename in files:
-#     os.system("cd " + originalfilepath + " && " + "msaprobs -o " + temp_path + _filename + "_aligned" + " " + _filename)
+First alignment using msaprobs, outputing to temp folder
+files = os.listdir(originalfilepath)
+for _filename in files:
+    os.system("cd " + originalfilepath + " && " + "msaprobs -o " + temp_path + _filename + "_aligned" + " " + _filename)
 
 
 #Second alignmentS
 files = os.listdir(_in_file_path)
 for _filename in files:
-    _filename = "sup_043_aligned"
+    # _filename = "sup_043_aligned"
     original_protein_n = []
     protein = []
     tempstring = []
@@ -315,4 +318,4 @@ for _filename in files:
     # print(protein0)
     # print(protein1)
     # print(protein2)
-    break
+    # break
