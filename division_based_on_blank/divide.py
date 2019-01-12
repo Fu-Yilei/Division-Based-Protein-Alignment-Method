@@ -27,70 +27,134 @@ import os
 #         protein_part_2.append(i[second_position:])
 #     return (protein_part_0, protein_part_1, protein_part_2)
 
-def divide_based_on_space(poslen_detail, proteinlist):
-    protein_part0 = []
-    protein_part1 = []
-    protein_part2 = []
-    first_len = 0
-    first_pos = 0
-    second_len = 0
-    second_pos = 0
-    for i in poslen_detail:
-        for j in range(len(i[1])):
-            if i[1][j] > first_len:
-                first_len = i[1][j]
-                first_pos = i[0][j]
-            if i[1][j] > second_len and i[1][j] < first_len:
-                second_len = i[1][j]
-                second_pos = i[0][j]
+# def divide_based_on_space(poslen_detail, proteinlist):
+#     protein_part0 = []
+#     protein_part1 = []
+#     protein_part2 = []
+#     first_len = 0
+#     first_pos = 0
+#     second_len = 0
+#     second_pos = 0
+#     for i in poslen_detail:
+#         for j in range(len(i[1])):
+#             if i[1][j] > first_len:
+#                 first_len = i[1][j]
+#                 first_pos = i[0][j]
+#             if i[1][j] > second_len and i[1][j] < first_len:
+#                 second_len = i[1][j]
+#                 second_pos = i[0][j]
 
-    if first_pos > second_pos:
-        temp_pos = first_pos
-        first_pos = second_pos
-        second_pos = temp_pos
-        temp_len = first_len
-        first_len = second_len
-        second_len = temp_len
+#     if first_pos > second_pos:
+#         temp_pos = first_pos
+#         first_pos = second_pos
+#         second_pos = temp_pos
+#         temp_len = first_len
+#         first_len = second_len
+#         second_len = temp_len
 
+#     for i in proteinlist:
+#         protein_part0.append(i[0:first_pos])
+#         protein_part1.append(i[first_pos:second_pos])
+#         protein_part2.append(i[second_pos:])
+
+#     print(first_pos, second_pos, first_len, second_len)
+#     return (protein_part0, protein_part1, protein_part2)
+
+
+
+# def findlongest(one_protein):
+#     poslist = []
+#     lengthlist = []
+#     count = 0
+#     i = 0
+#     # print(len(one_protein))
+#     while(i < len(one_protein) - 1):
+#         if one_protein[i] == '-':
+#             poslist.append(i)
+#             count = 1
+#             i = i + 1
+#             while(one_protein[i] == "-"):
+#                 count = count+1
+#                 i = i + 1
+#                 if i == len(one_protein):
+#                     break
+#             lengthlist.append(count)
+#         i = i + 1
+#     # longest = max(lengthlist)
+#     # longestpos = poslist[lengthlist.index(longest)]
+#     return (poslist, lengthlist)
+
+
+# def protein_space_info(proteinlist):
+#     data = []
+#     for i in proteinlist:
+#         data.append(findlongest(i))
+#     return data
+
+def calcspace(proteinlist):
+    spacecount = [0] * len(proteinlist[0])
     for i in proteinlist:
-        protein_part0.append(i[0:first_pos])
-        protein_part1.append(i[first_pos:second_pos])
-        protein_part2.append(i[second_pos:])
-
-    print(first_pos, second_pos, first_len, second_len)
-    return (protein_part0, protein_part1, protein_part2)
+        for j in range(len(i)):
+            if i[j] == '-':
+                spacecount[j] = 1
+    return spacecount
 
 
-
-def findlongest(one_protein):
+def divide_by_space(one_protein, proteinlist):
+    length = len(one_protein)
     poslist = []
     lengthlist = []
     count = 0
     i = 0
     # print(len(one_protein))
     while(i < len(one_protein) - 1):
-        if one_protein[i] == '-':
+        if one_protein[i] == 1:
             poslist.append(i)
             count = 1
             i = i + 1
-            while(one_protein[i] == "-"):
+            while(one_protein[i] == 1):
                 count = count+1
                 i = i + 1
                 if i == len(one_protein):
                     break
             lengthlist.append(count)
         i = i + 1
-    # longest = max(lengthlist)
-    # longestpos = poslist[lengthlist.index(longest)]
-    return (poslist, lengthlist)
-
-
-def protein_space_info(proteinlist):
-    data = []
+    longest = max(lengthlist)
+    longestpos = poslist[lengthlist.index(longest)]
+    
+    secondlen = 0
+    secondpos = 0
+    for j in range(len(lengthlist)):
+        if lengthlist[j] > secondlen and lengthlist[j] < longest:
+            secondlen = lengthlist[j]
+    secondpos = poslist[lengthlist.index(secondlen)]
+    
+    first_pos = longestpos
+    second_pos = secondpos
+    first_len = longest
+    second_len = secondlen
+    
+    
+    if first_pos > second_pos:
+        temp_pos = first_pos
+        first_pos = second_pos
+        second_pos = temp_pos
+        temp_len = first_len
+        first_len = second_len
+        second_len = temp_len 
+    if first_pos < length/2:
+        first_pos = first_pos + first_len
+    if second_pos < length/2:
+        second_pos = second_pos + second_len
+    protein_part0 = []
+    protein_part1 = []
+    protein_part2 = []
     for i in proteinlist:
-        data.append(findlongest(i))
-    return data
-
+        protein_part0.append(i[0:first_pos])
+        protein_part1.append(i[first_pos:second_pos])
+        protein_part2.append(i[second_pos:])
+        
+    return (protein_part0, protein_part1, protein_part2)
 
 
 
@@ -148,7 +212,7 @@ for _filename in files:
             protein.append(''.join(tempstring))
     del protein[0]
     #Divide file with preseted proportion.
-    divided = divide_based_on_space(protein_space_info(protein), protein)
+    divided = divide_by_space(calcspace(protein), protein)
     tempstring = []
 
 
