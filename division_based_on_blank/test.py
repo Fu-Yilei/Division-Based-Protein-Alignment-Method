@@ -3,6 +3,8 @@
 
 import os
 
+
+os.system("mkdir /home/fuyilei96/ProteinAlignment/proteinalignment/divided/sabre/ /home/fuyilei96/ProteinAlignment/proteinalignment/divided/bali3 /home/fuyilei96/ProteinAlignment/proteinalignment/divided/ox /home/fuyilei96/ProteinAlignment/proteinalignment/divided/sabre/temp/ /home/fuyilei96/ProteinAlignment/proteinalignment/divided/bali3/temp/ /home/fuyilei96/ProteinAlignment/proteinalignment/divided/ox/temp/")
 sabre = "/home/fuyilei96/ProteinAlignment/proteinalignment/benchmark/sabre/in/"
 sabre_temp = "/home/fuyilei96/ProteinAlignment/proteinalignment/divided/sabre/temp/"
 bali3 = "/home/fuyilei96/ProteinAlignment/proteinalignment/benchmark/bali3/in/"
