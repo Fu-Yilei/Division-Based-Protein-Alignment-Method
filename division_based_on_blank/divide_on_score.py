@@ -13,13 +13,33 @@ import sys
 import argparse
 import os
 
+def findposition(one_protein):
+    poslist = []
+    lengthlist = []
+    count = 0
+    i = 0
+    # print(len(one_protein))
+    while(i < len(one_protein) - 1):
+        if one_protein[i] == '-':
+            poslist.append(i)
+            count = 1
+            i = i + 1
+            while(one_protein[i] == "-"):
+                count = count+1
+                i = i + 1
+                if i == len(one_protein):
+                    break
+            lengthlist.append(count)
+        i = i + 1
+    # longest = max(lengthlist)
+    # longestpos = poslist[lengthlist.index(longest)]
+    return (poslist, lengthlist)
 
 def whole_protein_list(proteinlist):
     data = []
     for i in proteinlist:
         data.append(findposition(i))
     return data
-data = whole_protein_list(protein)
 
 def index_withoutexception(self,i):
     try:
