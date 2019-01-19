@@ -106,10 +106,10 @@ os.system("mkdir "  + _out_file_path + "in_pt0 " + _out_file_path + "in_pt1 " + 
 os.system("mkdir " + output_path)
 
 
-#First alignment using msaprobs, outputing to temp folder
+#First alignment using probcons, outputing to temp folder
 files = os.listdir(originalfilepath)
 for _filename in files:
-    os.system("cd " + originalfilepath + " && " + "msaprobs -o " + temp_path + _filename + "_aligned" + " " + _filename)
+    os.system("cd " + originalfilepath + " && " + "probcons "  + _filename + ">>" + temp_path + _filename + "_aligned")
 
 
 #Second alignmentS
@@ -119,7 +119,7 @@ for _filename in files:
     original_protein_n = []
     protein = []
     tempstring = []
-    #Reading each file, deal with msaprobs' line feed strategy.
+    #Reading each file, deal with probcons' line feed strategy.
     with open(_in_file_path +_filename, "r") as file:
             while(1):
                 line = file.readline()
@@ -164,15 +164,15 @@ for _filename in files:
                 file.write(line)
                 nametemp = name
                 linetemp = line
-    #If there is only one sequence in alignment file, msaprobs do not recogonize the file as an illegal input.
-    #Generate aligned file without using msaprobs
+    #If there is only one sequence in alignment file, probcons do not recogonize the file as an illegal input.
+    #Generate aligned file without using probcons
     if empty_flag_0.count(0) == 1:
         with open(pt0_outpath + originalfname + "_pt0_aligned", "w") as file:
             file.write(nametemp)
             file.write(linetemp)
     else:
-        #Generate aligned file using msaprobs
-        os.system("msaprobs -o " + pt0_outpath + originalfname + "_pt0_aligned " + _out_file_path + "in_pt0/" + originalfname + "_pt0")
+        #Generate aligned file using probcons
+        os.system("probcons "  + _out_file_path + "in_pt0/" + originalfname + "_pt0 >> " + pt0_outpath + originalfname + "_pt0_aligned ")
 
     with open(_out_file_path + "in_pt1/"+originalfname+"_pt1", 'w') as file:
         empty_flag_1 = [0] * len(original_protein_n)
@@ -186,15 +186,15 @@ for _filename in files:
                 file.write(line)
                 nametemp = name
                 linetemp = line
-    #If there is only one sequence in alignment file, msaprobs do not recogonize the file as an illegal input.
-    #Generate aligned file without using msaprobs
+    #If there is only one sequence in alignment file, probcons do not recogonize the file as an illegal input.
+    #Generate aligned file without using probcons
     if empty_flag_1.count(0) == 1:
         with open(pt1_outpath + originalfname + "_pt1_aligned", "w") as file:
             file.write(nametemp)
             file.write(linetemp)
     else:
-        #Generate aligned file using msaprobs
-        os.system("msaprobs -o " + pt1_outpath + originalfname + "_pt1_aligned " + _out_file_path + "in_pt1/" + originalfname + "_pt1")
+        #Generate aligned file using probcons
+        os.system("probcons "  + _out_file_path + "in_pt1/" + originalfname + "_pt1 >> " + pt0_outpath + originalfname + "_pt1_aligned ")
 
     with open(_out_file_path + "in_pt2/"+originalfname+"_pt2", 'w') as file:
         empty_flag_2 = [0] * len(original_protein_n)
@@ -208,15 +208,15 @@ for _filename in files:
                 file.write(line)
                 nametemp = name
                 linetemp = line
-    #If there is only one sequence in alignment file, msaprobs do not recogonize the file as an illegal input.
-    #Generate aligned file without using msaprobs
+    #If there is only one sequence in alignment file, probcons do not recogonize the file as an illegal input.
+    #Generate aligned file without using probcons
     if empty_flag_2.count(0) == 1:
         with open(pt2_outpath + originalfname + "_pt2_aligned", "w") as file:
             file.write(nametemp)
             file.write(linetemp)
     else:
-        #Generate aligned file using msaprobs
-        os.system("msaprobs -o " + pt2_outpath + originalfname + "_pt2_aligned " + _out_file_path + "in_pt2/" + originalfname + "_pt2")
+        #Generate aligned file using probcons
+        os.system("probcons "  + _out_file_path + "in_pt2/" + originalfname + "_pt2 >> " + pt0_outpath + originalfname + "_pt2_aligned ")
 
     #Combining generated re-aligned files...
     protein0 = []

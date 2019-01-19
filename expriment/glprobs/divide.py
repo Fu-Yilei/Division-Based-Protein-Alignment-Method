@@ -138,8 +138,6 @@ for _filename in files:
     tempstring = []
 
 
-
-
     #Doing alignment on divided files.
     if _filename[-8:] == "_aligned":
         originalfname = _filename[:-8]
