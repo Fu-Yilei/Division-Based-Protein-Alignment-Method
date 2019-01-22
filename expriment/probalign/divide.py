@@ -42,33 +42,40 @@ def divide_by_space(one_protein, proteinlist):
                     break
             lengthlist.append(count)
         i = i + 1
-    longest = max(lengthlist)
-    longestpos = poslist[lengthlist.index(longest)]
+    if len(lengthlist) == 0:
+        first_pos = int(0.38*len(one_protein))
+        second_pos = int(0.62*len(one_protein))
+    else:
+        longest = max(lengthlist)
+        longestpos = poslist[lengthlist.index(longest)]
+        
+        secondlen = 0
+        secondpos = 0
+        for j in range(len(lengthlist)):
+            if lengthlist[j] > secondlen and lengthlist[j] < longest:
+                secondlen = lengthlist[j]
+        if secondlen == 0:
+            secondpos = len(one_protein)
+        else:
+            secondpos = poslist[lengthlist.index(secondlen)]
     
-    secondlen = 0
-    secondpos = 0
-    for j in range(len(lengthlist)):
-        if lengthlist[j] > secondlen and lengthlist[j] < longest:
-            secondlen = lengthlist[j]
-    secondpos = poslist[lengthlist.index(secondlen)]
-    
-    first_pos = longestpos
-    second_pos = secondpos
-    first_len = longest
-    second_len = secondlen
-    
-    
-    if first_pos > second_pos:
-        temp_pos = first_pos
-        first_pos = second_pos
-        second_pos = temp_pos
-        temp_len = first_len
-        first_len = second_len
-        second_len = temp_len 
-    if first_pos < length/2:
-        first_pos = first_pos + first_len
-    if second_pos < length/2:
-        second_pos = second_pos + second_len
+        first_pos = longestpos
+        second_pos = secondpos
+        first_len = longest
+        second_len = secondlen
+        
+        
+        if first_pos > second_pos:
+            temp_pos = first_pos
+            first_pos = second_pos
+            second_pos = temp_pos
+            temp_len = first_len
+            first_len = second_len
+            second_len = temp_len 
+        if first_pos < length/2:
+            first_pos = first_pos + first_len
+        if second_pos < length/2:
+            second_pos = second_pos + second_len
     protein_part0 = []
     protein_part1 = []
     protein_part2 = []
