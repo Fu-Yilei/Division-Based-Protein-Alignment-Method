@@ -43,8 +43,8 @@ def divide_by_space(one_protein, proteinlist):
             lengthlist.append(count)
         i = i + 1
     if len(lengthlist) == 0:
-        first_pos = int(0.38*len(one_protein))
-        second_pos = int(0.62*len(one_protein))
+        first_pos = int(0)
+        second_pos = int(len(one_protein))
     else:
         longest = max(lengthlist)
         longestpos = poslist[lengthlist.index(longest)]
