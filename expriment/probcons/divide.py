@@ -201,7 +201,7 @@ for _filename in files:
             file.write(linetemp)
     else:
         #Generate aligned file using probcons
-        os.system("probcons "  + _out_file_path + "in_pt1/" + originalfname + "_pt1 >> " + pt0_outpath + originalfname + "_pt1_aligned ")
+        os.system("probcons "  + _out_file_path + "in_pt1/" + originalfname + "_pt1 >> " + pt1_outpath + originalfname + "_pt1_aligned ")
 
     with open(_out_file_path + "in_pt2/"+originalfname+"_pt2", 'w') as file:
         empty_flag_2 = [0] * len(original_protein_n)
@@ -223,7 +223,7 @@ for _filename in files:
             file.write(linetemp)
     else:
         #Generate aligned file using probcons
-        os.system("probcons "  + _out_file_path + "in_pt2/" + originalfname + "_pt2 >> " + pt0_outpath + originalfname + "_pt2_aligned ")
+        os.system("probcons "  + _out_file_path + "in_pt2/" + originalfname + "_pt2 >> " + pt2_outpath + originalfname + "_pt2_aligned ")
 
     #Combining generated re-aligned files...
     protein0 = []
