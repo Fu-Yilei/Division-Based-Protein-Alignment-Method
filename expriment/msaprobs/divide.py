@@ -43,8 +43,10 @@ def divide_by_space(one_protein, proteinlist):
             lengthlist.append(count)
         i = i + 1
     if len(lengthlist) == 0:
-        first_pos = int(0)
-        second_pos = int(len(one_protein))
+
+        print("length = 0")
+        first_pos = 0
+        second_pos = length
     else:
         longest = max(lengthlist)
         longestpos = poslist[lengthlist.index(longest)]
@@ -76,6 +78,7 @@ def divide_by_space(one_protein, proteinlist):
             first_pos = first_pos + first_len
         if second_pos < length/2:
             second_pos = second_pos + second_len
+
     protein_part0 = []
     protein_part1 = []
     protein_part2 = []
@@ -116,7 +119,7 @@ os.system("mkdir " + output_path)
 #First alignment using msaprobs, outputing to temp folder
 files = os.listdir(originalfilepath)
 for _filename in files:
-    os.system("cd " + originalfilepath + " && " + "msaprobs -o " + temp_path + _filename + "_aligned" + " " + _filename)
+    os.system("nohup cd " + originalfilepath + " && " + "msaprobs -o " + temp_path + _filename + "_aligned" + " " + _filename + " &")
 
 
 #Second alignmentS
@@ -179,7 +182,7 @@ for _filename in files:
             file.write(linetemp)
     else:
         #Generate aligned file using msaprobs
-        os.system("msaprobs -o " + pt0_outpath + originalfname + "_pt0_aligned " + _out_file_path + "in_pt0/" + originalfname + "_pt0")
+        os.system("nohup msaprobs -o " + pt0_outpath + originalfname + "_pt0_aligned " + _out_file_path + "in_pt0/" + originalfname + "_pt0 &")
 
     with open(_out_file_path + "in_pt1/"+originalfname+"_pt1", 'w') as file:
         empty_flag_1 = [0] * len(original_protein_n)
@@ -201,7 +204,7 @@ for _filename in files:
             file.write(linetemp)
     else:
         #Generate aligned file using msaprobs
-        os.system("msaprobs -o " + pt1_outpath + originalfname + "_pt1_aligned " + _out_file_path + "in_pt1/" + originalfname + "_pt1")
+        os.system("nohup msaprobs -o " + pt1_outpath + originalfname + "_pt1_aligned " + _out_file_path + "in_pt1/" + originalfname + "_pt1 &")
 
     with open(_out_file_path + "in_pt2/"+originalfname+"_pt2", 'w') as file:
         empty_flag_2 = [0] * len(original_protein_n)
@@ -223,7 +226,7 @@ for _filename in files:
             file.write(linetemp)
     else:
         #Generate aligned file using msaprobs
-        os.system("msaprobs -o " + pt2_outpath + originalfname + "_pt2_aligned " + _out_file_path + "in_pt2/" + originalfname + "_pt2")
+        os.system("nohup msaprobs -o " + pt2_outpath + originalfname + "_pt2_aligned " + _out_file_path + "in_pt2/" + originalfname + "_pt2 &")
 
     #Combining generated re-aligned files...
     protein0 = []
