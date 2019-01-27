@@ -43,7 +43,6 @@ def divide_by_space(one_protein, proteinlist):
             lengthlist.append(count)
         i = i + 1
     if len(lengthlist) == 0:
-
         print("length = 0")
         first_pos = 0
         second_pos = length
