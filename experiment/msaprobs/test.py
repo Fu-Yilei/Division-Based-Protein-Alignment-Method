@@ -6,20 +6,20 @@ import argparse
 import os
 
 
-# os.system("python divide.py -orf /mnt/c/Users/fuyil/OneDrive/bioinformatics/Protein/ProteinAlignment/proteinalignment/benchmark/ox/in/ -ouf /mnt/c/Users/fuyil/OneDrive/bioinformatics/Protein/ProteinAlignment/Division-Based-Protein-Alignment-Method/experiment/msaprobs/ox/ ")
+# os.system("python divide.py -orf /home/fuyilei96/ProteinAlignment/proteinalignment/benchmark/ox/in/ -ouf /home/fuyilei96/ProteinAlignment/Division-Based-Protein-Alignment-Method/experiment/msaprobs/ox/ ")
 
 
 #Some paths...
 
-originalfilepath = "/mnt/c/Users/fuyil/OneDrive/bioinformatics/Protein/ProteinAlignment/proteinalignment/benchmark/ox/in/"
-outputfilepath = "/mnt/c/Users/fuyil/OneDrive/bioinformatics/Protein/ProteinAlignment/Division-Based-Protein-Alignment-Method/experiment/msaprobs/ox/"
+originalfilepath = "/home/fuyilei96/ProteinAlignment/proteinalignment/benchmark/ox/in/"
+outputfilepath = "/home/fuyilei96/ProteinAlignment/Division-Based-Protein-Alignment-Method/experiment/msaprobs/ox/"
 temp_path = outputfilepath + "temp/"
 _in_file_path = temp_path
 _out_file_path = outputfilepath
 output_path = outputfilepath + "output/"
 # first_pt = args.first_proportion
 # second_pt = args.second_proportion
-os.system("mkdir  /mnt/c/Users/fuyil/OneDrive/bioinformatics/Protein/ProteinAlignment/Division-Based-Protein-Alignment-Method/experiment/msaprobs/sabre /mnt/c/Users/fuyil/OneDrive/bioinformatics/Protein/ProteinAlignment/Division-Based-Protein-Alignment-Method/experiment/msaprobs/ox /mnt/c/Users/fuyil/OneDrive/bioinformatics/Protein/ProteinAlignment/Division-Based-Protein-Alignment-Method/experiment/msaprobs/bali3")
+os.system("mkdir  /home/fuyilei96/ProteinAlignment/Division-Based-Protein-Alignment-Method/experiment/msaprobs/sabre /home/fuyilei96/ProteinAlignment/Division-Based-Protein-Alignment-Method/experiment/msaprobs/ox /home/fuyilei96/ProteinAlignment/Division-Based-Protein-Alignment-Method/experiment/msaprobs/bali3")
 
 #Make dictionary for those paths.
 os.system("mkdir " + temp_path)
