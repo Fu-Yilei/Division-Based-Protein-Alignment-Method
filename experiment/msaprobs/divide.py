@@ -93,7 +93,7 @@ def divide_by_space(one_protein, proteinlist):
 
 
 def directoutput(inpath, outpath):
-    os.system("mv "+ inpath + " " + outpath)
+    os.system("cp "+ inpath + " " + outpath)
 
 #Arg parser for this program
 parser = argparse.ArgumentParser(description = "Divide file from original path to destination path.")
