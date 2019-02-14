@@ -155,6 +155,7 @@ for _filename in files:
     outpath = output_path + _filename + "_aligned"
     if divided == -1 or divided == -2:
         directoutput(inpath, outpath)
+        exit
     else:
         
     ######################################################
