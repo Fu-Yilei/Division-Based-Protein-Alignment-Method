@@ -47,6 +47,7 @@ def divide_by_space(one_protein, proteinlist):
         # print("length = 0")
         # first_pos = 0
         # second_pos = length
+        print(-1)
         return -1
     else:
         longest = max(lengthlist)
@@ -59,6 +60,7 @@ def divide_by_space(one_protein, proteinlist):
                 secondlen = lengthlist[j]
         if secondlen == 0:
             # secondpos = len(one_protein)
+            print(-1)
             return -2
         else:
             secondpos = poslist[lengthlist.index(secondlen)]
@@ -119,11 +121,16 @@ os.system("mkdir " + outputfilepath + "out_pt0 "  + outputfilepath + "out_pt1 " 
 os.system("mkdir "  + _out_file_path + "in_pt0 " + _out_file_path + "in_pt1 " + _out_file_path + "in_pt2 ")
 os.system("mkdir " + output_path)
 
+############################################################################################################################
+'''
 
 #First alignment using msaprobs, outputing to temp folder
 files = os.listdir(originalfilepath)
 for _filename in files:
     os.system("cd " + originalfilepath + " && " + "msaprobs -o " + temp_path + _filename + "_aligned" + " " + _filename)
+
+'''
+############################################################################################################################
 
 
 #Second alignment
@@ -157,7 +164,7 @@ for _filename in files:
         directoutput(inpath, outpath)
     else:
         
-        ######################################################
+    ######################################################
 
         #Doing alignment on divided files.
         if _filename[-8:] == "_aligned":
