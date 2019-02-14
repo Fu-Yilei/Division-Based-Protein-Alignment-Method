@@ -42,9 +42,12 @@ def divide_by_space(one_protein, proteinlist):
                     break
             lengthlist.append(count)
         i = i + 1
+        
     if len(lengthlist) == 0:
-        first_pos = int(0.38*len(one_protein))
-        second_pos = int(0.62*len(one_protein))
+        # print("length = 0")
+        # first_pos = 0
+        # second_pos = length
+        return -1
     else:
         longest = max(lengthlist)
         longestpos = poslist[lengthlist.index(longest)]
@@ -55,7 +58,8 @@ def divide_by_space(one_protein, proteinlist):
             if lengthlist[j] > secondlen and lengthlist[j] < longest:
                 secondlen = lengthlist[j]
         if secondlen == 0:
-            secondpos = len(one_protein)
+            # secondpos = len(one_protein)
+            return -2
         else:
             secondpos = poslist[lengthlist.index(secondlen)]
     
@@ -76,6 +80,7 @@ def divide_by_space(one_protein, proteinlist):
             first_pos = first_pos + first_len
         if second_pos < length/2:
             second_pos = second_pos + second_len
+
     protein_part0 = []
     protein_part1 = []
     protein_part2 = []
@@ -112,11 +117,13 @@ os.system("mkdir " + outputfilepath + "out_pt0 "  + outputfilepath + "out_pt1 " 
 os.system("mkdir "  + _out_file_path + "in_pt0 " + _out_file_path + "in_pt1 " + _out_file_path + "in_pt2 ")
 os.system("mkdir " + output_path)
 
+############################################################################################################################
 
 #First alignment using probalign, outputing to temp folder
 files = os.listdir(originalfilepath)
 for _filename in files:
     os.system("cd " + originalfilepath + " && " + "probalign "  + _filename + ">>" + temp_path + _filename + "_aligned")
+############################################################################################################################
 
 
 #Second alignmentS
@@ -140,11 +147,17 @@ for _filename in files:
                     tempstring.append(line[:-1])
             protein.append(''.join(tempstring))
     del protein[0]
+    ######################################################
     #Divide file with preseted proportion.
     divided = divide_by_space(calcspace(protein), protein)
     tempstring = []
-
-
+    inpath = temp_path + _filename 
+    outpath = output_path + _filename
+    if divided == -1 or divided == -2:
+        os.system("cp "+ inpath + " " + outpath)
+    else:
+        
+    ######################################################
 
 
     #Doing alignment on divided files.

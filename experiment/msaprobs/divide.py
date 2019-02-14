@@ -47,7 +47,6 @@ def divide_by_space(one_protein, proteinlist):
         # print("length = 0")
         # first_pos = 0
         # second_pos = length
-        print(-1)
         return -1
     else:
         longest = max(lengthlist)
@@ -60,7 +59,6 @@ def divide_by_space(one_protein, proteinlist):
                 secondlen = lengthlist[j]
         if secondlen == 0:
             # secondpos = len(one_protein)
-            print(-1)
             return -2
         else:
             secondpos = poslist[lengthlist.index(secondlen)]
@@ -94,8 +92,7 @@ def divide_by_space(one_protein, proteinlist):
     return (protein_part0, protein_part1, protein_part2)
 
 
-def directoutput(inpath, outpath):
-    os.system("cp "+ inpath + " " + outpath)
+
 
 #Arg parser for this program
 parser = argparse.ArgumentParser(description = "Divide file from original path to destination path.")
@@ -122,14 +119,12 @@ os.system("mkdir "  + _out_file_path + "in_pt0 " + _out_file_path + "in_pt1 " + 
 os.system("mkdir " + output_path)
 
 ############################################################################################################################
-'''
 
 #First alignment using msaprobs, outputing to temp folder
 files = os.listdir(originalfilepath)
 for _filename in files:
     os.system("cd " + originalfilepath + " && " + "msaprobs -o " + temp_path + _filename + "_aligned" + " " + _filename)
 
-'''
 ############################################################################################################################
 
 
@@ -158,10 +153,10 @@ for _filename in files:
     #Divide file with preseted proportion.
     divided = divide_by_space(calcspace(protein), protein)
     tempstring = []
-    inpath = temp_path + _filename + "_aligned"
-    outpath = output_path + _filename + "_aligned"
+    inpath = temp_path + _filename 
+    outpath = output_path + _filename
     if divided == -1 or divided == -2:
-        directoutput(inpath, outpath)
+        os.system("cp "+ inpath + " " + outpath)
     else:
         
     ######################################################

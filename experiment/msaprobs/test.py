@@ -176,7 +176,7 @@ for _filename in files:
                 name = original_protein_n[i] + '\n'
                 #Removing spaces, which is '-' in alignment file
                 line = divided[0][i].replace('-', '') + '\n'
-                if line == '\n':
+                if line == '\n': 
                     empty_flag_0[i] = 1
                 else:
                     file.write(name)
