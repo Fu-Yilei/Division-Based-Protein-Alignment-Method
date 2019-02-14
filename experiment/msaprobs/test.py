@@ -60,7 +60,7 @@ def divide_by_space(one_protein, proteinlist):
                 secondlen = lengthlist[j]
         if secondlen == 0:
             # secondpos = len(one_protein)
-            print(-1)
+            print(-2)
             return -2
         else:
             secondpos = poslist[lengthlist.index(secondlen)]
@@ -149,8 +149,8 @@ for _filename in files:
     #Divide file with preseted proportion.
     divided = divide_by_space(calcspace(protein), protein)
     tempstring = []
-    inpath = temp_path + _filename + "_aligned"
-    outpath = output_path + _filename + "_aligned"
+    inpath = temp_path + _filename 
+    outpath = output_path + _filename 
     if divided == -1 or divided == -2:
         print("cp "+ inpath + " " + outpath)
         os.system("cp "+ inpath + " " + outpath)
