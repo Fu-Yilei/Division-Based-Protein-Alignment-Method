@@ -152,6 +152,7 @@ for _filename in files:
     inpath = temp_path + _filename + "_aligned"
     outpath = output_path + _filename + "_aligned"
     if divided == -1 or divided == -2:
+        print("???????????????????????")
         os.system("cp "+ inpath + " " + outpath)
         
     else:
