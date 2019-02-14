@@ -94,8 +94,6 @@ def divide_by_space(one_protein, proteinlist):
     return (protein_part0, protein_part1, protein_part2)
 
 
-def directoutput(inpath, outpath):
-    os.system("cp "+ inpath + " " + outpath)
 
 
 
@@ -154,8 +152,8 @@ for _filename in files:
     inpath = temp_path + _filename + "_aligned"
     outpath = output_path + _filename + "_aligned"
     if divided == -1 or divided == -2:
-        directoutput(inpath, outpath)
-        exit
+        os.system("cp "+ inpath + " " + outpath)
+        
     else:
         
     ######################################################
