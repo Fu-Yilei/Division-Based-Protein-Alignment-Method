@@ -158,170 +158,170 @@ for _filename in files:
         
     ######################################################
 
-    
+        
 
-    #Doing alignment on divided files.
-    if _filename[-8:] == "_aligned":
-        originalfname = _filename[:-8]
-    empty_flag_0 = []
-    empty_flag_1 = []
-    empty_flag_2 = []
-    pt0_outpath = _out_file_path + "out_pt0/"
-    pt1_outpath = _out_file_path + "out_pt1/"
-    pt2_outpath = _out_file_path + "out_pt2/"
+        #Doing alignment on divided files.
+        if _filename[-8:] == "_aligned":
+            originalfname = _filename[:-8]
+        empty_flag_0 = []
+        empty_flag_1 = []
+        empty_flag_2 = []
+        pt0_outpath = _out_file_path + "out_pt0/"
+        pt1_outpath = _out_file_path + "out_pt1/"
+        pt2_outpath = _out_file_path + "out_pt2/"
 
 
-    with open(_out_file_path + "in_pt0/"+originalfname+"_pt0", 'w') as file:
-        empty_flag_0 = [0] * len(original_protein_n)
-        for i in range(len(original_protein_n)):
-            name = original_protein_n[i] + '\n'
-            #Removing spaces, which is '-' in alignment file
-            line = divided[0][i].replace('-', '') + '\n'
-            if line == '\n':
-                empty_flag_0[i] = 1
-            else:
-                file.write(name)
-                file.write(line)
-                nametemp = name
-                linetemp = line
-    #If there is only one sequence in alignment file, probcons do not recogonize the file as an illegal input.
-    #Generate aligned file without using probcons
-    if empty_flag_0.count(0) == 1:
-        with open(pt0_outpath + originalfname + "_pt0_aligned", "w") as file:
-            file.write(nametemp)
-            file.write(linetemp)
-    else:
-        #Generate aligned file using probcons
-        os.system("probcons "  + _out_file_path + "in_pt0/" + originalfname + "_pt0 >> " + pt0_outpath + originalfname + "_pt0_aligned ")
+        with open(_out_file_path + "in_pt0/"+originalfname+"_pt0", 'w') as file:
+            empty_flag_0 = [0] * len(original_protein_n)
+            for i in range(len(original_protein_n)):
+                name = original_protein_n[i] + '\n'
+                #Removing spaces, which is '-' in alignment file
+                line = divided[0][i].replace('-', '') + '\n'
+                if line == '\n':
+                    empty_flag_0[i] = 1
+                else:
+                    file.write(name)
+                    file.write(line)
+                    nametemp = name
+                    linetemp = line
+        #If there is only one sequence in alignment file, probcons do not recogonize the file as an illegal input.
+        #Generate aligned file without using probcons
+        if empty_flag_0.count(0) == 1:
+            with open(pt0_outpath + originalfname + "_pt0_aligned", "w") as file:
+                file.write(nametemp)
+                file.write(linetemp)
+        else:
+            #Generate aligned file using probcons
+            os.system("probcons "  + _out_file_path + "in_pt0/" + originalfname + "_pt0 >> " + pt0_outpath + originalfname + "_pt0_aligned ")
 
-    with open(_out_file_path + "in_pt1/"+originalfname+"_pt1", 'w') as file:
-        empty_flag_1 = [0] * len(original_protein_n)
-        for i in range(len(original_protein_n)):
-            name = original_protein_n[i] + '\n'
-            line = divided[1][i].replace('-', '') + '\n'
-            if line == '\n':
-                empty_flag_1[i] = 1
-            else:
-                file.write(name)
-                file.write(line)
-                nametemp = name
-                linetemp = line
-    #If there is only one sequence in alignment file, probcons do not recogonize the file as an illegal input.
-    #Generate aligned file without using probcons
-    if empty_flag_1.count(0) == 1:
-        with open(pt1_outpath + originalfname + "_pt1_aligned", "w") as file:
-            file.write(nametemp)
-            file.write(linetemp)
-    else:
-        #Generate aligned file using probcons
-        os.system("probcons "  + _out_file_path + "in_pt1/" + originalfname + "_pt1 >> " + pt1_outpath + originalfname + "_pt1_aligned ")
+        with open(_out_file_path + "in_pt1/"+originalfname+"_pt1", 'w') as file:
+            empty_flag_1 = [0] * len(original_protein_n)
+            for i in range(len(original_protein_n)):
+                name = original_protein_n[i] + '\n'
+                line = divided[1][i].replace('-', '') + '\n'
+                if line == '\n':
+                    empty_flag_1[i] = 1
+                else:
+                    file.write(name)
+                    file.write(line)
+                    nametemp = name
+                    linetemp = line
+        #If there is only one sequence in alignment file, probcons do not recogonize the file as an illegal input.
+        #Generate aligned file without using probcons
+        if empty_flag_1.count(0) == 1:
+            with open(pt1_outpath + originalfname + "_pt1_aligned", "w") as file:
+                file.write(nametemp)
+                file.write(linetemp)
+        else:
+            #Generate aligned file using probcons
+            os.system("probcons "  + _out_file_path + "in_pt1/" + originalfname + "_pt1 >> " + pt1_outpath + originalfname + "_pt1_aligned ")
 
-    with open(_out_file_path + "in_pt2/"+originalfname+"_pt2", 'w') as file:
-        empty_flag_2 = [0] * len(original_protein_n)
-        for i in range(len(original_protein_n)):
-            name = original_protein_n[i] + '\n'
-            line = divided[2][i].replace('-', '') + '\n'
-            if line == '\n':
-                empty_flag_2[i] = 1
-            else:
-                file.write(name)
-                file.write(line)
-                nametemp = name
-                linetemp = line
-    #If there is only one sequence in alignment file, probcons do not recogonize the file as an illegal input.
-    #Generate aligned file without using probcons
-    if empty_flag_2.count(0) == 1:
-        with open(pt2_outpath + originalfname + "_pt2_aligned", "w") as file:
-            file.write(nametemp)
-            file.write(linetemp)
-    else:
-        #Generate aligned file using probcons
-        os.system("probcons "  + _out_file_path + "in_pt2/" + originalfname + "_pt2 >> " + pt2_outpath + originalfname + "_pt2_aligned ")
+        with open(_out_file_path + "in_pt2/"+originalfname+"_pt2", 'w') as file:
+            empty_flag_2 = [0] * len(original_protein_n)
+            for i in range(len(original_protein_n)):
+                name = original_protein_n[i] + '\n'
+                line = divided[2][i].replace('-', '') + '\n'
+                if line == '\n':
+                    empty_flag_2[i] = 1
+                else:
+                    file.write(name)
+                    file.write(line)
+                    nametemp = name
+                    linetemp = line
+        #If there is only one sequence in alignment file, probcons do not recogonize the file as an illegal input.
+        #Generate aligned file without using probcons
+        if empty_flag_2.count(0) == 1:
+            with open(pt2_outpath + originalfname + "_pt2_aligned", "w") as file:
+                file.write(nametemp)
+                file.write(linetemp)
+        else:
+            #Generate aligned file using probcons
+            os.system("probcons "  + _out_file_path + "in_pt2/" + originalfname + "_pt2 >> " + pt2_outpath + originalfname + "_pt2_aligned ")
 
-    #Combining generated re-aligned files...
-    protein0 = []
-    protein1 = []
-    protein2 = []
-    protein_n = []
+        #Combining generated re-aligned files...
+        protein0 = []
+        protein1 = []
+        protein2 = []
+        protein_n = []
 
-    with open(pt0_outpath + originalfname + "_pt0_aligned", "r") as file0:
-            with open(pt1_outpath + originalfname + "_pt1_aligned", "r") as file1:
-                with open(pt2_outpath + originalfname + "_pt2_aligned", "r") as file2:
-                    with open(output_path + originalfname + "_aligned", "a") as optfile:
-                        while(1):
-                            #Dealing with line feed
-                            line0 = file0.readline()
-                            if not line0:
-                                break
-                            elif line0[0] == '>':
-                                protein_n.append(line0[:-1])
-                                protein0.append(''.join(tempstring))
-                                tempstring = []
+        with open(pt0_outpath + originalfname + "_pt0_aligned", "r") as file0:
+                with open(pt1_outpath + originalfname + "_pt1_aligned", "r") as file1:
+                    with open(pt2_outpath + originalfname + "_pt2_aligned", "r") as file2:
+                        with open(output_path + originalfname + "_aligned", "a") as optfile:
+                            while(1):
+                                #Dealing with line feed
+                                line0 = file0.readline()
+                                if not line0:
+                                    break
+                                elif line0[0] == '>':
+                                    protein_n.append(line0[:-1])
+                                    protein0.append(''.join(tempstring))
+                                    tempstring = []
+                                else:
+                                    tempstring.append(line0[:-1])
+                            protein0.append(''.join(tempstring))
+                            del protein0[0]
+
+                            if len(protein0) > 0:
+                                len_of_protein0 = len(protein0[0])
+                                for i in range(len(empty_flag_0)):
+                                    #Insert sequences with all spaces.
+                                    if empty_flag_0[i] == 1:
+                                        protein_n.insert(i, original_protein_n[i])
+                                        protein0.insert(i, "-"*len_of_protein0)
                             else:
-                                tempstring.append(line0[:-1])
-                        protein0.append(''.join(tempstring))
-                        del protein0[0]
-
-                        if len(protein0) > 0:
-                            len_of_protein0 = len(protein0[0])
-                            for i in range(len(empty_flag_0)):
-                                #Insert sequences with all spaces.
-                                if empty_flag_0[i] == 1:
+                                for i in range(len(empty_flag_0)):
                                     protein_n.insert(i, original_protein_n[i])
-                                    protein0.insert(i, "-"*len_of_protein0)
-                        else:
-                            for i in range(len(empty_flag_0)):
-                                protein_n.insert(i, original_protein_n[i])
 
-                        while(1):
-                            line1 = file1.readline()
-                            if not line1:
-                                break
-                            elif line1[0] == '>':
-                                protein1.append(''.join(tempstring))
-                                tempstring = []
-                            else:
-                                tempstring.append(line1[:-1])
-                        protein1.append(''.join(tempstring))
-                        del protein1[0]
-                        if len(protein1) > 0:
-                            len_of_protein1 = len(protein1[0])
-                            for i in range(len(empty_flag_0)):
-                                if empty_flag_1[i] == 1:
-                                    protein1.insert(i, "-"*len_of_protein1)
+                            while(1):
+                                line1 = file1.readline()
+                                if not line1:
+                                    break
+                                elif line1[0] == '>':
+                                    protein1.append(''.join(tempstring))
+                                    tempstring = []
+                                else:
+                                    tempstring.append(line1[:-1])
+                            protein1.append(''.join(tempstring))
+                            del protein1[0]
+                            if len(protein1) > 0:
+                                len_of_protein1 = len(protein1[0])
+                                for i in range(len(empty_flag_0)):
+                                    if empty_flag_1[i] == 1:
+                                        protein1.insert(i, "-"*len_of_protein1)
 
 
-                        while(1):
-                            line2 = file2.readline()
-                            # print(line2)
-                            if not line2:
-                                break
-                            elif line2[0] == '>':
-                                protein2.append(''.join(tempstring))
-                                tempstring = []
-                            else:
-                                tempstring.append(line2[:-1])
-                        protein2.append(''.join(tempstring))
-                        # print(protein2)
-                        del protein2[0]
-                        if len(protein2) > 0:
-                            len_of_protein2 = len(protein2[0])
-                            for i in range(len(empty_flag_0)):
-                                if empty_flag_2[i] == 1:
-                                    protein2.insert(i, "-"*len_of_protein2)
-                        #File Combanation
-                        for i in range(len(protein_n)):
-                            optfile.write(protein_n[i]+'\n')
-                            if len(protein0) > 0 and  len(protein1) > 0 and len(protein2) > 0:
-                                optfile.write(protein0[i]+protein1[i]+protein2[i]+'\n')
-                            elif len(protein0) > 0 and  len(protein1) > 0 :
-                                optfile.write(protein0[i]+protein1[i]+'\n')
-                            elif len(protein1) > 0 and len(protein2) > 0:
-                                optfile.write(protein1[i]+protein2[i]+'\n')
-                            elif len(protein0) > 0  and len(protein2) > 0:
-                                optfile.write(protein0[i]+protein2[i]+'\n')
-    # print(empty_flag_0, empty_flag_1, empty_flag_2)
-    # print(protein0)
-    # print(protein1)
-    # print(protein2)
-    # break
+                            while(1):
+                                line2 = file2.readline()
+                                # print(line2)
+                                if not line2:
+                                    break
+                                elif line2[0] == '>':
+                                    protein2.append(''.join(tempstring))
+                                    tempstring = []
+                                else:
+                                    tempstring.append(line2[:-1])
+                            protein2.append(''.join(tempstring))
+                            # print(protein2)
+                            del protein2[0]
+                            if len(protein2) > 0:
+                                len_of_protein2 = len(protein2[0])
+                                for i in range(len(empty_flag_0)):
+                                    if empty_flag_2[i] == 1:
+                                        protein2.insert(i, "-"*len_of_protein2)
+                            #File Combanation
+                            for i in range(len(protein_n)):
+                                optfile.write(protein_n[i]+'\n')
+                                if len(protein0) > 0 and  len(protein1) > 0 and len(protein2) > 0:
+                                    optfile.write(protein0[i]+protein1[i]+protein2[i]+'\n')
+                                elif len(protein0) > 0 and  len(protein1) > 0 :
+                                    optfile.write(protein0[i]+protein1[i]+'\n')
+                                elif len(protein1) > 0 and len(protein2) > 0:
+                                    optfile.write(protein1[i]+protein2[i]+'\n')
+                                elif len(protein0) > 0  and len(protein2) > 0:
+                                    optfile.write(protein0[i]+protein2[i]+'\n')
+        # print(empty_flag_0, empty_flag_1, empty_flag_2)
+        # print(protein0)
+        # print(protein1)
+        # print(protein2)
+        # break
