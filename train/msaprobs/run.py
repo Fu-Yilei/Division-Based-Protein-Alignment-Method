@@ -13,8 +13,8 @@
 import sys
 import argparse
 import os
-ff = 0.38
-sf = 0.62
+ff = "0.38"
+sf = "0.62"
 
 
 os.system("mkdir  /home/fuyilei96/ProteinAlignment/Division-Based-Protein-Alignment-Method/train/msaprobs/sabre /home/fuyilei96/ProteinAlignment/Division-Based-Protein-Alignment-Method/train/msaprobs/ox /home/fuyilei96/ProteinAlignment/Division-Based-Protein-Alignment-Method/train/msaprobs/bali3")
