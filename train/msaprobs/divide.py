@@ -17,8 +17,8 @@ import os
 
 
 def divide_by_fraction(protein, first_fraction, second_fraction):
-    first_pos = float(len(protein[0])) * first_fraction
-    second_pos = float(len(protein[0])) * second_fraction
+    first_pos = int(float(len(protein[0])) * first_fraction)
+    second_pos = int(float(len(protein[0])) * second_fraction)
 
     protein_part0 = []
     protein_part1 = []
