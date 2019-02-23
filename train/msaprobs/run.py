@@ -19,8 +19,11 @@ for i in range(15, 45, 5):
     for j in range(85, 55, 5):
         ff = str(float(i)/100)
         sf = str(float(j)/100)
+        #delete remain files
         os.system("rm -r /home/fuyilei96/ProteinAlignment/Division-Based-Protein-Alignment-Method/train/msaprobs/sabre /home/fuyilei96/ProteinAlignment/Division-Based-Protein-Alignment-Method/train/msaprobs/ox /home/fuyilei96/ProteinAlignment/Division-Based-Protein-Alignment-Method/train/msaprobs/bali3")
+        #mkdir
         os.system("mkdir  /home/fuyilei96/ProteinAlignment/Division-Based-Protein-Alignment-Method/train/msaprobs/sabre /home/fuyilei96/ProteinAlignment/Division-Based-Protein-Alignment-Method/train/msaprobs/ox /home/fuyilei96/ProteinAlignment/Division-Based-Protein-Alignment-Method/train/msaprobs/bali3")
+        print("python divide.py -orf /home/fuyilei96/ProteinAlignment/proteinalignment/benchmark/sabre/in/ -ouf /home/fuyilei96/ProteinAlignment/Division-Based-Protein-Alignment-Method/train/msaprobs/sabre/ -ff " + ff + " -sf " + sf)
         os.system("python divide.py -orf /home/fuyilei96/ProteinAlignment/proteinalignment/benchmark/sabre/in/ -ouf /home/fuyilei96/ProteinAlignment/Division-Based-Protein-Alignment-Method/train/msaprobs/sabre/ -ff " + ff + " -sf " + sf)
         os.system("python divide.py -orf /home/fuyilei96/ProteinAlignment/proteinalignment/benchmark/ox/in/ -ouf /home/fuyilei96/ProteinAlignment/Division-Based-Protein-Alignment-Method/train/msaprobs/ox/ -ff " + ff + " -sf " + sf)
         os.system("python divide.py -orf /home/fuyilei96/ProteinAlignment/proteinalignment/benchmark/bali3/in/ -ouf /home/fuyilei96/ProteinAlignment/Division-Based-Protein-Alignment-Method/train/msaprobs/bali3/ -ff " + ff + " -sf " + sf)
