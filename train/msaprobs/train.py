@@ -27,7 +27,7 @@ for i in range(15, 45, 5):
         os.system("python divide.py -orf /home/fuyilei96/ProteinAlignment/proteinalignment/benchmark/bali3/in/ -ouf /home/fuyilei96/ProteinAlignment/Division-Based-Protein-Alignment-Method/train/msaprobs/bali3/ -ff " + ff + " -sf " + sf)
 
         #Calculating Scores
-        scorepath = "/home/fuyilei96/ProteinAlignment/Division-Based-Protein-Alignment-Method/train/msaprobs/score_ff_" + ff +"_sf_" + sf + "/"
+        scorepath = "/home/fuyilei96/ProteinAlignment/Division-Based-Protein-Alignment-Method/train/msaprobs/scores_ff_" + ff +"_sf_" + sf + "/"
         os.system("mkdir " + scorepath)
         os.system("python score.py -af /home/fuyilei96/ProteinAlignment/Division-Based-Protein-Alignment-Method/train/msaprobs/sabre/output/ -rf /home/fuyilei96/ProteinAlignment/proteinalignment/benchmark/sabre/ref/ -op " + scorepath + " -dbn sabre")
         os.system("python score.py -af /home/fuyilei96/ProteinAlignment/Division-Based-Protein-Alignment-Method/train/msaprobs/ox/output/ -rf /home/fuyilei96/ProteinAlignment/proteinalignment/benchmark/ox/ref/ -op " + scorepath + " -dbn ox")
