@@ -17,6 +17,7 @@ import os
 
 for i in range(15, 45, 5):
     for j in range(85, 55, 5):
+        print(i, j)
         ff = str(float(i)/100)
         sf = str(float(j)/100)
         # #delete remain files
