@@ -26,19 +26,19 @@ for i in range(15, 45, 5):
         os.system("mkdir /data3/fuyilei96/Division-Based-Protein-Alignment-Method/train/probalign/bali3/" + "_ff_" + ff +"_sf_" + sf + "/" )
 
 
-        os.system("python divide.py -orf /data3/fuyilei96/proteinalignment/benchmark/sabre/in/ -ouf /data3/fuyilei96/Division-Based-Protein-Alignment-Method/train/probalign/sabre/" + "_ff_" + ff +"_sf_" + sf + "/" + " -ff " + ff + " -sf " + sf)
-        os.system("python divide.py -orf /data3/fuyilei96/proteinalignment/benchmark/ox/in/ -ouf /data3/fuyilei96/Division-Based-Protein-Alignment-Method/train/probalign/ox/" + "_ff_" + ff +"_sf_" + sf + "/" + " -ff " + ff + " -sf " + sf)
-        os.system("python divide.py -orf /data3/fuyilei96/proteinalignment/benchmark/bali3/in/ -ouf /data3/fuyilei96/Division-Based-Protein-Alignment-Method/train/probalign/bali3/" + "_ff_" + ff +"_sf_" + sf + "/" + " -ff " + ff + " -sf " + sf)
+        os.system("python divide.py -orf /home/fuyilei96/ProteinAlignment/proteinalignment/benchmark/sabre/in/ -ouf /data3/fuyilei96/Division-Based-Protein-Alignment-Method/train/probalign/sabre/" + "_ff_" + ff +"_sf_" + sf + "/" + " -ff " + ff + " -sf " + sf)
+        os.system("python divide.py -orf /home/fuyilei96/ProteinAlignment/proteinalignment/benchmark/ox/in/ -ouf /data3/fuyilei96/Division-Based-Protein-Alignment-Method/train/probalign/ox/" + "_ff_" + ff +"_sf_" + sf + "/" + " -ff " + ff + " -sf " + sf)
+        os.system("python divide.py -orf /home/fuyilei96/ProteinAlignment/proteinalignment/benchmark/bali3/in/ -ouf /data3/fuyilei96/Division-Based-Protein-Alignment-Method/train/probalign/bali3/" + "_ff_" + ff +"_sf_" + sf + "/" + " -ff " + ff + " -sf " + sf)
 
 #         #Calculating Scores
 #         scorepath = "/data3/fuyilei96/Division-Based-Protein-Alignment-Method/train/probalign/scores_ff_" + ff +"_sf_" + sf + "/"
 #         os.system("mkdir " + scorepath)
-#         os.system("python score.py -af /data3/fuyilei96/Division-Based-Protein-Alignment-Method/train/probalign/sabre/output/ -rf /data3/fuyilei96/proteinalignment/benchmark/sabre/ref/ -op " + scorepath + " -dbn sabre")
-#         os.system("python score.py -af /data3/fuyilei96/Division-Based-Protein-Alignment-Method/train/probalign/ox/output/ -rf /data3/fuyilei96/proteinalignment/benchmark/ox/ref/ -op " + scorepath + " -dbn ox")
-#         os.system("python score.py -af /data3/fuyilei96/Division-Based-Protein-Alignment-Method/train/probalign/bali3/output/ -rf /data3/fuyilei96/proteinalignment/benchmark/bali3/ref/ -op " + scorepath + " -dbn bali3")
+#         os.system("python score.py -af /data3/fuyilei96/Division-Based-Protein-Alignment-Method/train/probalign/sabre/output/ -rf /home/fuyilei96/ProteinAlignment/proteinalignment/benchmark/sabre/ref/ -op " + scorepath + " -dbn sabre")
+#         os.system("python score.py -af /data3/fuyilei96/Division-Based-Protein-Alignment-Method/train/probalign/ox/output/ -rf /home/fuyilei96/ProteinAlignment/proteinalignment/benchmark/ox/ref/ -op " + scorepath + " -dbn ox")
+#         os.system("python score.py -af /data3/fuyilei96/Division-Based-Protein-Alignment-Method/train/probalign/bali3/output/ -rf /home/fuyilei96/ProteinAlignment/proteinalignment/benchmark/bali3/ref/ -op " + scorepath + " -dbn bali3")
 
             
 # #Calculating Original Scores
-# os.system("python score.py -af /data3/fuyilei96/Division-Based-Protein-Alignment-Method/train/probalign/sabre/temp/ -rf /data3/fuyilei96/proteinalignment/benchmark/sabre/ref/ -op /data3/fuyilei96/Division-Based-Protein-Alignment-Method/train/probalign/scores_original/ -dbn sabre_probalign")
-# os.system("python score.py -af /data3/fuyilei96/Division-Based-Protein-Alignment-Method/train/probalign/ox/temp/ -rf /data3/fuyilei96/proteinalignment/benchmark/ox/ref/ -op /data3/fuyilei96/Division-Based-Protein-Alignment-Method/train/probalign/scores_original/ -dbn ox_probalign")
-# os.system("python score.py -af /data3/fuyilei96/Division-Based-Protein-Alignment-Method/train/probalign/bali3/temp/ -rf /data3/fuyilei96/proteinalignment/benchmark/bali3/ref/ -op /data3/fuyilei96/Division-Based-Protein-Alignment-Method/train/probalign/scores_original/ -dbn bali3_probalign")
+# os.system("python score.py -af /data3/fuyilei96/Division-Based-Protein-Alignment-Method/train/probalign/sabre/temp/ -rf /home/fuyilei96/ProteinAlignment/proteinalignment/benchmark/sabre/ref/ -op /data3/fuyilei96/Division-Based-Protein-Alignment-Method/train/probalign/scores_original/ -dbn sabre_probalign")
+# os.system("python score.py -af /data3/fuyilei96/Division-Based-Protein-Alignment-Method/train/probalign/ox/temp/ -rf /home/fuyilei96/ProteinAlignment/proteinalignment/benchmark/ox/ref/ -op /data3/fuyilei96/Division-Based-Protein-Alignment-Method/train/probalign/scores_original/ -dbn ox_probalign")
+# os.system("python score.py -af /data3/fuyilei96/Division-Based-Protein-Alignment-Method/train/probalign/bali3/temp/ -rf /home/fuyilei96/ProteinAlignment/proteinalignment/benchmark/bali3/ref/ -op /data3/fuyilei96/Division-Based-Protein-Alignment-Method/train/probalign/scores_original/ -dbn bali3_probalign")
