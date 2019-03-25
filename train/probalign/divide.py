@@ -110,7 +110,7 @@ for _filename in files:
     pt2_outpath = _out_file_path + "out_pt2/"
 
 
-    with open(_out_file_path + "in_pt0/"+originalfname+"_pt0", 'w') as file:
+    with open(_out_file_path + "in_pt0/" + originalfname + "_pt0", 'w') as file:
         empty_flag_0 = [0] * len(original_protein_n)
         for i in range(len(original_protein_n)):
             name = original_protein_n[i] + '\n'
