@@ -21,7 +21,10 @@ for i in range(15, 45, 5):
         os.system("rm -r /data3/fuyilei96/Division-Based-Protein-Alignment-Method/train/glprobs/sabre /data3/fuyilei96/Division-Based-Protein-Alignment-Method/train/glprobs/ox /data3/fuyilei96/Division-Based-Protein-Alignment-Method/train/glprobs/bali3")
         #mkdir
         os.system("mkdir  /data3/fuyilei96/Division-Based-Protein-Alignment-Method/train/glprobs/sabre /data3/fuyilei96/Division-Based-Protein-Alignment-Method/train/glprobs/ox /data3/fuyilei96/Division-Based-Protein-Alignment-Method/train/glprobs/bali3")
-        
+        os.system("mkdir /data3/fuyilei96/Division-Based-Protein-Alignment-Method/train/glprobs/sabre/" + "_ff_" + ff +"_sf_" + sf + "/" )
+        os.system("mkdir /data3/fuyilei96/Division-Based-Protein-Alignment-Method/train/glprobs/ox/" + "_ff_" + ff +"_sf_" + sf + "/" )
+        os.system("mkdir /data3/fuyilei96/Division-Based-Protein-Alignment-Method/train/glprobs/bali3/" + "_ff_" + ff +"_sf_" + sf + "/" )
+
         os.system("python divide.py -orf /data3/fuyilei96/proteinalignment/benchmark/sabre/in/ -ouf /data3/fuyilei96/Division-Based-Protein-Alignment-Method/train/glprobs/sabre/" + "_ff_" + ff +"_sf_" + sf + "/" + " -ff " + ff + " -sf " + sf)
         os.system("python divide.py -orf /data3/fuyilei96/proteinalignment/benchmark/ox/in/ -ouf /data3/fuyilei96/Division-Based-Protein-Alignment-Method/train/glprobs/ox/" + "_ff_" + ff +"_sf_" + sf + "/" + " -ff " + ff + " -sf " + sf)
         os.system("python divide.py -orf /data3/fuyilei96/proteinalignment/benchmark/bali3/in/ -ouf /data3/fuyilei96/Division-Based-Protein-Alignment-Method/train/glprobs/bali3/" + "_ff_" + ff +"_sf_" + sf + "/" + " -ff " + ff + " -sf " + sf)
