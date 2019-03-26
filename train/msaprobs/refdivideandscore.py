@@ -51,8 +51,6 @@ for f in rpfilelist:
     with open(rpout+f, 'w') as file:
         for i in range(len(original_protein_n)):
             name = original_protein_n[i] + '\n'
-            if line == '\n':
-                empty_flag_1[i] = 1
-            else:
-                file.write(name)
-                file.write(line)
+            line = divided[1][i]'\n'
+            file.write(name)
+            file.write(line)
