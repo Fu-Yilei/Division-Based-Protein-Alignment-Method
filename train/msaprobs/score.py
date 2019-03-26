@@ -27,4 +27,4 @@ outpath = args.outputpath
 os.system("mkdir " + outpath)
 aligned_filenames = os.listdir(aligned_file_path)
 for _filename in aligned_filenames:
-    os.system("qscore -test " + aligned_file_path + _filename + " -ref " + reference_file_path + _filename[:-8] + " >> " + outpath + database_name + "_score")
+    os.system("qscore -test " + aligned_file_path + _filename + " -ref " + reference_file_path + _filename[:-12] + " >> " + outpath + database_name + "_score")
