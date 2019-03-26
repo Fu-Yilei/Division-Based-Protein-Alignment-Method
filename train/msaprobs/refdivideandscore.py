@@ -3,8 +3,8 @@ import os
 ip0 = "/data3/fuyilei96/ProteinTest/msaprobs/ox/_ff_0.15_sf_0.8/in_pt0/"
 ip1 = "/data3/fuyilei96/ProteinTest/msaprobs/ox/_ff_0.15_sf_0.8/in_pt1/"
 rp = "/home/fuyilei96/ProteinAlignment/proteinalignment/benchmark/ox/ref/"
-os.mkdir("/data3/fuyilei96/ProteinTest/msaprobs/ox/_ff_0.15_sf_0.8/")
-os.mkdir("/data3/fuyilei96/ProteinTest/msaprobs/ox/_ff_0.15_sf_0.8/ref/")
+os.system("mkdir /data3/fuyilei96/ProteinTest/msaprobs/ox/_ff_0.15_sf_0.8/")
+os.system("mkdir /data3/fuyilei96/ProteinTest/msaprobs/ox/_ff_0.15_sf_0.8/ref/")
 
 ip0filelist = os.listdir(ip0)
 ip1filelist = os.listdir(ip1)
