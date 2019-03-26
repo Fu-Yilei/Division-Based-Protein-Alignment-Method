@@ -27,7 +27,7 @@ def divide_by_fraction(protein, first_fraction, second_fraction):
 
 
 
-for f in rp:
+for f in rpfilelist:
     original_protein_n = []
     protein = []
     tempstring = []
