@@ -80,17 +80,17 @@ for _filename in files:
     tempstring = []
     #Reading each file, deal with msaprobs' line feed strategy.
     with open(_in_file_path +_filename, "r") as file:
-            while(1):
-                line = file.readline()
-                if not line:
-                    break
-                elif line[0] == '>':
-                    original_protein_n.append(line[:-1])
-                    protein.append(''.join(tempstring))
-                    tempstring = []
-                else:
-                    tempstring.append(line[:-1])
-            protein.append(''.join(tempstring))
+        while(1):
+            line = file.readline()
+            if not line:
+                break
+            elif line[0] == '>':
+                original_protein_n.append(line[:-1])
+                protein.append(''.join(tempstring))
+                tempstring = []
+            else:
+                tempstring.append(line[:-1])
+        protein.append(''.join(tempstring))
     del protein[0]
     ######################################################
     #Divide file with preseted proportion.
