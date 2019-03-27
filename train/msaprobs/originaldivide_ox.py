@@ -1,15 +1,12 @@
 import os
 
-ip0 = "/data3/fuyilei96/ProteinTest/msaprobs/bali3/_ff_0.15_sf_0.8/in_pt0/"
-ip1 = "/data3/fuyilei96/ProteinTest/msaprobs/bali3/_ff_0.15_sf_0.8/in_pt1/"
-rp = "/home/fuyilei96/ProteinAlignment/proteinalignment/benchmark/bali3/ref/"
-os.system("mkdir /data3/fuyilei96/ProteinTest/msaprobs/bali3/_ff_0.15_sf_0.8/")
-os.system("mkdir /data3/fuyilei96/ProteinTest/msaprobs/bali3/_ff_0.15_sf_0.8/ref/")
+tp = "/data3/fuyilei96/ProteinTest/msaprobs/sabre/_ff_0.15_sf_0.8/temp/"
+rp = "/home/fuyilei96/ProteinAlignment/proteinalignment/benchmark/sabre/ref/"
+os.system("mkdir /data3/fuyilei96/ProteinTest/msaprobs/sabre/_ff_0.15_sf_0.8/")
+os.system("mkdir /data3/fuyilei96/ProteinTest/msaprobs/sabre/_ff_0.15_sf_0.8/temp_divided/")
 
-ip0filelist = os.listdir(ip0)
-ip1filelist = os.listdir(ip1)
-rpfilelist = os.listdir(rp)
-rpout = "/data3/fuyilei96/ProteinTest/msaprobs/bali3/_ff_0.15_sf_0.8/ref/"
+tpfilelist = os.listdir(tp)
+tpout = "/data3/fuyilei96/ProteinTest/msaprobs/sabre/_ff_0.15_sf_0.8/temp_divided/"
 
 def divide_by_fraction(protein, first_fraction, second_fraction):
     first_pos = int(float(len(protein[0])) * first_fraction)
@@ -27,11 +24,11 @@ def divide_by_fraction(protein, first_fraction, second_fraction):
 
 
 
-for f in rpfilelist:
+for f in tpfilelist:
     original_protein_n = []
     protein = []
     tempstring = []
-    with open(rp+f, "r") as file:
+    with open(tp + f, "r") as file:
         while(1):
             line = file.readline()
             if not line:
@@ -48,7 +45,7 @@ for f in rpfilelist:
     #Divide file with preseted proportion.
     divided = divide_by_fraction(protein, 0.15, 0.8)
 
-    with open(rpout+f, 'w') as file:
+    with open(tpout+f, 'w') as file:
         for i in range(len(original_protein_n)):
             name = original_protein_n[i] + '\n'
             line = divided[1][i] + '\n'
