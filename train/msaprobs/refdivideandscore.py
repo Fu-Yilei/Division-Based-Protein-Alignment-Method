@@ -1,15 +1,15 @@
 import os
 
-ip0 = "/data3/fuyilei96/ProteinTest/msaprobs/ox/_ff_0.15_sf_0.8/in_pt0/"
-ip1 = "/data3/fuyilei96/ProteinTest/msaprobs/ox/_ff_0.15_sf_0.8/in_pt1/"
-rp = "/home/fuyilei96/ProteinAlignment/proteinalignment/benchmark/ox/ref/"
-os.system("mkdir /data3/fuyilei96/ProteinTest/msaprobs/ox/_ff_0.15_sf_0.8/")
-os.system("mkdir /data3/fuyilei96/ProteinTest/msaprobs/ox/_ff_0.15_sf_0.8/ref/")
+ip0 = "/data3/fuyilei96/ProteinTest/msaprobs/bali3/_ff_0.15_sf_0.8/in_pt0/"
+ip1 = "/data3/fuyilei96/ProteinTest/msaprobs/bali3/_ff_0.15_sf_0.8/in_pt1/"
+rp = "/home/fuyilei96/ProteinAlignment/proteinalignment/benchmark/bali3/ref/"
+os.system("mkdir /data3/fuyilei96/ProteinTest/msaprobs/bali3/_ff_0.15_sf_0.8/")
+os.system("mkdir /data3/fuyilei96/ProteinTest/msaprobs/bali3/_ff_0.15_sf_0.8/ref/")
 
 ip0filelist = os.listdir(ip0)
 ip1filelist = os.listdir(ip1)
 rpfilelist = os.listdir(rp)
-rpout = "/data3/fuyilei96/ProteinTest/msaprobs/ox/_ff_0.15_sf_0.8/ref/"
+rpout = "/data3/fuyilei96/ProteinTest/msaprobs/bali3/_ff_0.15_sf_0.8/ref/"
 
 def divide_by_fraction(protein, first_fraction, second_fraction):
     first_pos = int(float(len(protein[0])) * first_fraction)
