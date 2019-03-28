@@ -1,12 +1,12 @@
 import os
 
-tp = "/data3/fuyilei96/ProteinTest/msaprobs/sabre/_ff_0.3_sf_0.7/temp/"
-rp = "/home/fuyilei96/ProteinAlignment/proteinalignment/benchmark/sabre/ref/"
-os.system("mkdir /data3/fuyilei96/ProteinTest/msaprobs/sabre/_ff_0.3_sf_0.7/")
-os.system("mkdir /data3/fuyilei96/ProteinTest/msaprobs/sabre/_ff_0.3_sf_0.7/temp_divided/")
+tp = "/data3/fuyilei96/ProteinTest/msaprobs/ox/_ff_0.3_sf_0.7/temp/"
+rp = "/home/fuyilei96/ProteinAlignment/proteinalignment/benchmark/ox/ref/"
+os.system("mkdir /data3/fuyilei96/ProteinTest/msaprobs/ox/_ff_0.3_sf_0.7/")
+os.system("mkdir /data3/fuyilei96/ProteinTest/msaprobs/ox/_ff_0.3_sf_0.7/temp_divided/")
 
 tpfilelist = os.listdir(tp)
-tpout = "/data3/fuyilei96/ProteinTest/msaprobs/sabre/_ff_0.3_sf_0.7/temp_divided/"
+tpout = "/data3/fuyilei96/ProteinTest/msaprobs/ox/_ff_0.3_sf_0.7/temp_divided/"
 
 def divide_by_fraction(protein, first_fraction, second_fraction):
     first_pos = int(float(len(protein[0])) * first_fraction)
