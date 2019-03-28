@@ -1,12 +1,12 @@
 import os
 
-tp = "/data3/fuyilei96/ProteinTest/msaprobs/sabre/_ff_0.15_sf_0.8/temp/"
+tp = "/data3/fuyilei96/ProteinTest/msaprobs/sabre/_ff_0.3_sf_0.7/temp/"
 rp = "/home/fuyilei96/ProteinAlignment/proteinalignment/benchmark/sabre/ref/"
-os.system("mkdir /data3/fuyilei96/ProteinTest/msaprobs/sabre/_ff_0.15_sf_0.8/")
-os.system("mkdir /data3/fuyilei96/ProteinTest/msaprobs/sabre/_ff_0.15_sf_0.8/temp_divided/")
+os.system("mkdir /data3/fuyilei96/ProteinTest/msaprobs/sabre/_ff_0.3_sf_0.7/")
+os.system("mkdir /data3/fuyilei96/ProteinTest/msaprobs/sabre/_ff_0.3_sf_0.7/temp_divided/")
 
 tpfilelist = os.listdir(tp)
-tpout = "/data3/fuyilei96/ProteinTest/msaprobs/sabre/_ff_0.15_sf_0.8/temp_divided/"
+tpout = "/data3/fuyilei96/ProteinTest/msaprobs/sabre/_ff_0.3_sf_0.7/temp_divided/"
 
 def divide_by_fraction(protein, first_fraction, second_fraction):
     first_pos = int(float(len(protein[0])) * first_fraction)
@@ -43,7 +43,7 @@ for f in tpfilelist:
     del protein[0]
     ######################################################
     #Divide file with preseted proportion.
-    divided = divide_by_fraction(protein, 0.15, 0.8)
+    divided = divide_by_fraction(protein, 0.3, 0.7)
 
     with open(tpout+f, 'w') as file:
         for i in range(len(original_protein_n)):
