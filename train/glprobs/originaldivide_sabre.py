@@ -43,7 +43,7 @@ for f in tpfilelist:
     del protein[0]
     ######################################################
     #Divide file with preseted proportion.
-    divided = divide_by_fraction(protein, 0.15, 0.8)
+    divided = divide_by_fraction(protein, 0.3, 0.7)
 
     with open(tpout+f, 'w') as file:
         for i in range(len(original_protein_n)):
