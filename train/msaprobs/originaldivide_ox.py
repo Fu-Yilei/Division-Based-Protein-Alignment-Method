@@ -1,5 +1,13 @@
 import os
 
+#Arg parser for this program
+parser = argparse.ArgumentParser(description = "Divide file from original path to destination path.")
+parser.add_argument('-orf', '--originalfilepath', type = str, help = "The file path of original file path")
+parser.add_argument('-ouf' ,'--outputfilepath', type = str, help = "The file path of output file path")
+parser.add_argument('-ff', '--firstfraction', type = float, help = "First fraction, scale 0-second fraction")
+parser.add_argument('-sf' ,'--secondfraction', type = float, help = "Second fraction, scale First Fraction-1")
+
+
 tp = "/data3/fuyilei96/ProteinTest/msaprobs/ox/_ff_0.3_sf_0.7/temp/"
 rp = "/home/fuyilei96/ProteinAlignment/proteinalignment/benchmark/ox/ref/"
 os.system("mkdir /data3/fuyilei96/ProteinTest/msaprobs/ox/_ff_0.3_sf_0.7/")
