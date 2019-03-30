@@ -110,19 +110,19 @@ for _filename in files:
     pt2_outpath = _out_file_path + "out_pt2/"
 
 
-    # with open(_out_file_path + "in_pt0/"+originalfname+"_pt0", 'w') as file:
-    #     empty_flag_0 = [0] * len(original_protein_n)
-    #     for i in range(len(original_protein_n)):
-    #         name = original_protein_n[i] + '\n'
-    #         #Removing spaces, which is '-' in alignment file
-    #         line = divided[0][i].replace('-', '') + '\n'
-    #         if line == '\n':
-    #             empty_flag_0[i] = 1
-    #         else:
-    #             file.write(name)
-    #             file.write(line)
-    #             nametemp = name
-    #             linetemp = line
+    with open(_out_file_path + "in_pt0/"+originalfname+"_pt0", 'w') as file:
+        empty_flag_0 = [0] * len(original_protein_n)
+        for i in range(len(original_protein_n)):
+            name = original_protein_n[i] + '\n'
+            #Removing spaces, which is '-' in alignment file
+            line = divided[0][i].replace('-', '') + '\n'
+            if line == '\n':
+                empty_flag_0[i] = 1
+            else:
+                file.write(name)
+                file.write(line)
+                nametemp = name
+                linetemp = line
     # #If there is only one sequence in alignment file, msaprobs do not recogonize the file as an illegal input.
     # #Generate aligned file without using msaprobs
     # if empty_flag_0.count(0) == 1:
@@ -155,18 +155,18 @@ for _filename in files:
         #Generate aligned file using msaprobs
         os.system("msaprobs -o " + pt1_outpath + originalfname + "_pt1_aligned " + _out_file_path + "in_pt1/" + originalfname + "_pt1")
 
-    # with open(_out_file_path + "in_pt2/"+originalfname+"_pt2", 'w') as file:
-    #     empty_flag_2 = [0] * len(original_protein_n)
-    #     for i in range(len(original_protein_n)):
-    #         name = original_protein_n[i] + '\n'
-    #         line = divided[2][i].replace('-', '') + '\n'
-    #         if line == '\n':
-    #             empty_flag_2[i] = 1
-    #         else:
-    #             file.write(name)
-    #             file.write(line)
-    #             nametemp = name
-    #             linetemp = line
+    with open(_out_file_path + "in_pt2/"+originalfname+"_pt2", 'w') as file:
+        empty_flag_2 = [0] * len(original_protein_n)
+        for i in range(len(original_protein_n)):
+            name = original_protein_n[i] + '\n'
+            line = divided[2][i].replace('-', '') + '\n'
+            if line == '\n':
+                empty_flag_2[i] = 1
+            else:
+                file.write(name)
+                file.write(line)
+                nametemp = name
+                linetemp = line
     # #If there is only one sequence in alignment file, msaprobs do not recogonize the file as an illegal input.
     # #Generate aligned file without using msaprobs
     # if empty_flag_2.count(0) == 1:
