@@ -18,7 +18,7 @@ for i in range(15, 45, 5):
         sf = str(j/100.0)
 
         #Calculating Scores
-        scorepath = "/data3/fuyilei96/Division-Based-Protein-Alignment-Method/train/msaprobs/scores_ff_" + ff +"_sf_" + sf + "/"
+        scorepath = "/data3/fuyilei96/ProteinTest/msaprobs/scores_ff_" + ff +"_sf_" + sf + "/"
         os.system("mkdir " + scorepath)
         os.system("python score_8.py -af /data3/fuyilei96/ProteinTest/msaprobs/sabre/" + "_ff_" + ff +"_sf_" + sf + "/output/ -rf /home/fuyilei96/ProteinAlignment/proteinalignment/benchmark/sabre/ref/ -op " + scorepath + " -dbn sabre")
         os.system("python score_8.py -af /data3/fuyilei96/ProteinTest/msaprobs/ox/" + "_ff_" + ff +"_sf_" + sf + "/output/ -rf /home/fuyilei96/ProteinAlignment/proteinalignment/benchmark/ox/ref/ -op " + scorepath + " -dbn ox")
