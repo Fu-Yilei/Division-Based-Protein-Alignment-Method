@@ -12,8 +12,8 @@
 
 import sys
 import os
-for i in range(20, 30, 5):
-    for j in range(60, 80, 5):
+for i in range(15, 45, 5):
+    for j in range(50, 90, 5):
         ff = str(i/100.0)
         sf = str(j/100.0)
         #delete remain files
