@@ -67,7 +67,7 @@ os.system("mkdir " + output_path)
 files = os.listdir(originalfilepath)
 if not os.listdir(temp_path):
     for _filename in files:
-        os.system("cd " + originalfilepath + " && " + "msaprobs -o  -ir" + refinement_path + _filename + "_aligned" + " " + _filename )
+        os.system("cd " + originalfilepath + " && " + "msaprobs -ir -o " + refinement_path + _filename + "_aligned" + " " + _filename )
 
 ############################################################################################################################
 
