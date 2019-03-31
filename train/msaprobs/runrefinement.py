@@ -15,9 +15,9 @@ import os
 
 #mkdir
 os.system("mkdir  /data3/fuyilei96/ProteinTest/msaprobs/sabre /data3/fuyilei96/ProteinTest/msaprobs/ox /data3/fuyilei96/ProteinTest/msaprobs/bali3")
-os.system("mkdir /data3/fuyilei96/ProteinTest/msaprobs/sabre/" )
-os.system("mkdir /data3/fuyilei96/ProteinTest/msaprobs/ox/" )
-os.system("mkdir /data3/fuyilei96/ProteinTest/msaprobs/bali3/" )
+os.system("mkdir /data3/fuyilei96/ProteinTest/msaprobs/sabre/refinement" )
+os.system("mkdir /data3/fuyilei96/ProteinTest/msaprobs/ox/refinement" )
+os.system("mkdir /data3/fuyilei96/ProteinTest/msaprobs/bali3/refinement" )
 
 
 os.system("python refinement.py -orf /home/fuyilei96/ProteinAlignment/proteinalignment/benchmark/sabre/in/ -ouf /data3/fuyilei96/ProteinTest/msaprobs/sabre/" )
