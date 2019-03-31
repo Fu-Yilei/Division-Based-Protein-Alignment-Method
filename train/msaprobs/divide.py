@@ -115,7 +115,7 @@ for _filename in files:
         for i in range(len(original_protein_n)):
             name = original_protein_n[i] + '\n'
             #Removing spaces, which is '-' in alignment file
-            line = divided[0][i]    #.replace('-', '') + '\n'
+            line = divided[0][i] + '\n'    #.replace('-', '') + '\n'
             if line == '\n':
                 empty_flag_0[i] = 1
             else:
@@ -159,7 +159,7 @@ for _filename in files:
         empty_flag_2 = [0] * len(original_protein_n)
         for i in range(len(original_protein_n)):
             name = original_protein_n[i] + '\n'
-            line = divided[2][i]    #.replace('-', '') + '\n'
+            line = divided[2][i] + '\n'    #.replace('-', '') + '\n'
             if line == '\n':
                 empty_flag_2[i] = 1
             else:
