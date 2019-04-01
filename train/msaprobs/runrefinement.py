@@ -28,6 +28,6 @@ os.system("python refinement.py -orf /home/fuyilei96/ProteinAlignment/proteinali
 scorepath = "/data3/fuyilei96/ProteinTest/msaprobs/"
 os.system("mkdir " + scorepath)
 os.system("python score_8.py -af /data3/fuyilei96/ProteinTest/msaprobs/sabre/refinement/ -rf /home/fuyilei96/ProteinAlignment/proteinalignment/benchmark/sabre/ref/ -op " + scorepath + " -dbn sabre")
-os.system("python score_8.py -af /data3/fuyilei96/ProteinTest/msaprobs/ox/output/refinement/ -rf /home/fuyilei96/ProteinAlignment/proteinalignment/benchmark/ox/ref/ -op " + scorepath + " -dbn ox")
-os.system("python score_8.py -af /data3/fuyilei96/ProteinTest/msaprobs/bali3/output/refinement/ -rf /home/fuyilei96/ProteinAlignment/proteinalignment/benchmark/bali3/ref/ -op " + scorepath + " -dbn bali3")
+os.system("python score_8.py -af /data3/fuyilei96/ProteinTest/msaprobs/ox/refinement/ -rf /home/fuyilei96/ProteinAlignment/proteinalignment/benchmark/ox/ref/ -op " + scorepath + " -dbn ox")
+os.system("python score_8.py -af /data3/fuyilei96/ProteinTest/msaprobs/bali3/refinement/ -rf /home/fuyilei96/ProteinAlignment/proteinalignment/benchmark/bali3/ref/ -op " + scorepath + " -dbn bali3")
 
