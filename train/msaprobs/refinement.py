@@ -39,7 +39,7 @@ parser.add_argument('-orf', '--originalfilepath', type = str, help = "The file p
 parser.add_argument('-ouf' ,'--outputfilepath', type = str, help = "The file path of output file path")
 parser.add_argument('-ff', '--firstfraction', type = float, help = "First fraction, scale 0-second fraction")
 parser.add_argument('-sf' ,'--secondfraction', type = float, help = "Second fraction, scale First Fraction-1")
-parser.add_argument('-rt' ,'--refinementtimes', type = float, help = "Second fraction, scale First Fraction-1")
+parser.add_argument('-rt' ,'--refinementtimes', type = str, help = "refinement times")
 
 
 args = parser.parse_args()
