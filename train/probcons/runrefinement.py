@@ -12,7 +12,7 @@
 
 import sys
 import os
-for i in range(10, 40, 10):
+for i in range(100, 400, 10):
 
     # #mkdir
     os.system("mkdir  /data3/fuyilei96/ProteinTest/probcons/sabre /data3/fuyilei96/ProteinTest/probcons/ox /data3/fuyilei96/ProteinTest/probcons/bali3")
