@@ -63,6 +63,7 @@ os.system("mkdir " + temp_path)
 os.system("mkdir " + outputfilepath + "out_pt0 "  + outputfilepath + "out_pt1 "  + outputfilepath + "out_pt2 ")
 os.system("mkdir "  + _out_file_path + "in_pt0 " + _out_file_path + "in_pt1 " + _out_file_path + "in_pt2 ")
 os.system("mkdir " + output_path)
+os.system("mkdir " + refinement_path)
 
 ############################################################################################################################
 
