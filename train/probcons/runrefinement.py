@@ -13,7 +13,7 @@
 import sys
 import os
 for i in range(100, 400, 100):
-
+    os.system("rm -r /data3/fuyilei96/ProteinTest/probcons/sabre/refinement /data3/fuyilei96/ProteinTest/probcons/ox/refinement /data3/fuyilei96/ProteinTest/probcons/bali3/refinement")
     # #mkdir
     os.system("mkdir  /data3/fuyilei96/ProteinTest/probcons/sabre /data3/fuyilei96/ProteinTest/probcons/ox /data3/fuyilei96/ProteinTest/probcons/bali3")
     os.system("mkdir /data3/fuyilei96/ProteinTest/probcons/sabre/refinement" )
